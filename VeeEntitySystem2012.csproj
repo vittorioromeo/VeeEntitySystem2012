@@ -46,8 +46,8 @@
     <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Vee\Software\2012\June\drodclone\SFMLStart\SFMLStart\SFMLStart.csproj">
-      <Project>{C8DF8299-2B2E-415B-849E-4CBBC1CB4AA6}</Project>
+    <ProjectReference Include="..\SFMLStart\SFMLStart.csproj">
+      <Project>{c8df8299-2b2e-415b-849e-4cbbc1cb4aa6}</Project>
       <Name>SFMLStart</Name>
     </ProjectReference>
   </ItemGroup>
