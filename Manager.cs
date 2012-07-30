@@ -23,7 +23,7 @@ namespace VeeEntitySystem2012
 
         public void Update(float mFrameTime)
         {
-            foreach (var entity in new List<Entity> (Repository.GetEntities()))
+            foreach (var entity in new List<Entity>(Repository.GetEntities()))
                 entity.Update(mFrameTime);
         }
     }

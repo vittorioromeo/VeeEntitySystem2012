@@ -14,8 +14,8 @@ namespace VeeEntitySystem2012
         private readonly List<Component> _components;
         private readonly Repository _repository;
         private readonly HashSet<string> _tags;
-        private int _uID;
         private bool _isDead;
+        private int _uID;
 
         public Entity(Manager mManager)
         {
@@ -89,7 +89,7 @@ namespace VeeEntitySystem2012
         {
             foreach (var component in new List<Component>(_components))
             {
-                if(_isDead) return;
+                if (_isDead) return;
                 component.Update(mFrameTime);
             }
         }
