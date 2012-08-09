@@ -1,6 +1,7 @@
 ﻿#region
 using System;
 using System.Collections.Generic;
+using SFMLStart.Utilities;
 
 #endregion
 
@@ -14,7 +15,6 @@ namespace VeeEntitySystem2012
         private readonly List<Component> _components;
         private readonly Repository _repository;
         private readonly HashSet<string> _tags;
-        private bool _isDead;
         private int _uID;
 
         public Entity(Manager mManager)
@@ -32,6 +32,8 @@ namespace VeeEntitySystem2012
         }
 
         public Manager Manager { get; private set; }
+        public Action OnDestroy { get; set; }
+        public bool IsDead { get; set; }
 
         private void AddTag(string mTag)
         {
@@ -87,18 +89,20 @@ namespace VeeEntitySystem2012
 
         public void Update(float mFrameTime)
         {
+            if (IsDead) return;
+
             foreach (var component in new List<Component>(_components))
             {
-                if (_isDead) return;
+                if (IsDead) return;
                 component.Update(mFrameTime);
             }
         }
         public void Destroy()
         {
-            _isDead = true;
-
-            foreach (var component in new List<Component>(_components)) RemoveComponent(component);
+            OnDestroy.SafeInvoke();
+            IsDead = true;
             _repository.RemoveEntity(this);
+            foreach (var component in new List<Component>(_components)) component.Destroy();
         }
     }
 }
