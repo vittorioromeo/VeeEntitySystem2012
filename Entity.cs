@@ -33,7 +33,7 @@ namespace VeeEntitySystem2012
 
         public Manager Manager { get; private set; }
         public Action OnDestroy { get; set; }
-        public bool IsDead { get; set; }
+        public bool IsDead { get; private set; }
 
         private void AddTag(string mTag)
         {
@@ -72,20 +72,15 @@ namespace VeeEntitySystem2012
             mComponent.Removed();
         }
 
-        internal IEnumerable<string> GetTags() { return _tags; }
-        internal IEnumerable<Component> GetComponents() { return _components; }
+        public IEnumerable<string> GetTags() { return _tags; }
+        public IEnumerable<Component> GetComponents() { return _components; }
 
         public void AddTags(params string[] mTags) { foreach (var tag in mTags) AddTag(tag); }
         public void RemoveTags(params string[] mTags) { foreach (var tag in mTags) RemoveTag(tag); }
         public bool HasTag(string mTag) { return _tags.Contains(mTag); }
         public void AddComponents(params Component[] mComponents) { foreach (var component in mComponents) AddComponent(component); }
-        public T GetComponent<T>() where T : Component
-        {
-            if (_componentDictionary.ContainsKey(typeof (T)))
-                return (T) _componentDictionary[typeof (T)];
-
-            return null;
-        }
+        public T GetComponent<T>() where T : Component { return _componentDictionary.ContainsKey(typeof (T)) ? (T) _componentDictionary[typeof (T)] : null; }
+        public T GetComponentUnSafe<T>() where T : Component { return (T)_componentDictionary[typeof(T)]; }
 
         public void Update(float mFrameTime)
         {
@@ -99,8 +94,9 @@ namespace VeeEntitySystem2012
         }
         public void Destroy()
         {
-            OnDestroy.SafeInvoke();
             IsDead = true;
+
+            OnDestroy.SafeInvoke();
             _repository.RemoveEntity(this);
             foreach (var component in new List<Component>(_components)) component.Destroy();
         }

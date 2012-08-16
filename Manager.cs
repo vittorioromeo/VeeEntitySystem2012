@@ -15,7 +15,7 @@ namespace VeeEntitySystem2012
 
         public void Clear() { Repository.Clear(); }
         public IEnumerable<Entity> GetEntities() { return Repository.GetEntities(); }
-        public IEnumerable<Entity> GetEntitiesByTag(string mTag) { return Repository.GetEntities(mTag); }
+        public IEnumerable<Entity> GetEntitiesByTag(string mTag) { return Repository.GetEntitiesByTag(mTag); }
         public IEnumerable<Entity> GetEntitiesByComponent(Type mType) { return Repository.GetEntitiesByComponent(mType); }
         public IEnumerable<Component> GetComponents(Type mType) { return Repository.GetComponents(mType); }
         public bool HasEntityByTag(string mTag) { return GetEntitiesByTag(mTag).Any(); }

@@ -95,7 +95,7 @@ namespace VeeEntitySystem2012
         }
 
         internal IEnumerable<Entity> GetEntities() { return _entities; }
-        internal IEnumerable<Entity> GetEntities(string mTag)
+        internal IEnumerable<Entity> GetEntitiesByTag(string mTag)
         {
             if (_taggedEntities.ContainsKey(mTag)) return _taggedEntities[mTag];
             return new Entity[] {};
