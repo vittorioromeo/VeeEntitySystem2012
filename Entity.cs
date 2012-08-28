@@ -78,9 +78,10 @@ namespace VeeEntitySystem2012
         public void AddTags(params string[] mTags) { foreach (var tag in mTags) AddTag(tag); }
         public void RemoveTags(params string[] mTags) { foreach (var tag in mTags) RemoveTag(tag); }
         public bool HasTag(string mTag) { return _tags.Contains(mTag); }
+
         public void AddComponents(params Component[] mComponents) { foreach (var component in mComponents) AddComponent(component); }
         public T GetComponent<T>() where T : Component { return _componentDictionary.ContainsKey(typeof (T)) ? (T) _componentDictionary[typeof (T)] : null; }
-        public T GetComponentUnSafe<T>() where T : Component { return (T)_componentDictionary[typeof(T)]; }
+        public T GetComponentUnSafe<T>() where T : Component { return (T) _componentDictionary[typeof (T)]; }
 
         public void Update(float mFrameTime)
         {
@@ -92,6 +93,7 @@ namespace VeeEntitySystem2012
                 component.Update(mFrameTime);
             }
         }
+
         public void Destroy()
         {
             IsDead = true;
