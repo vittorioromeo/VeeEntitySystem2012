@@ -5,7 +5,7 @@ using System.Linq;
 
 #endregion
 
-namespace VeeEntitySystem2012
+namespace VeeEntity
 {
     public class Manager
     {

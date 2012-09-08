@@ -1,4 +1,4 @@
-﻿namespace VeeEntitySystem2012
+﻿namespace VeeEntity
 {
     public abstract class Component
     {

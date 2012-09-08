@@ -5,7 +5,7 @@ using SFMLStart.Utilities;
 
 #endregion
 
-namespace VeeEntitySystem2012
+namespace VeeEntity
 {
     public class Entity
     {

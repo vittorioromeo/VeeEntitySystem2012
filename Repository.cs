@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace VeeEntitySystem2012
+namespace VeeEntity
 {
     internal class Repository
     {

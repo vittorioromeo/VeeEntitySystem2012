@@ -7,8 +7,8 @@
     <ProjectGuid>{07789116-C18E-4A15-B8F2-BC9A83089B0D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VeeEntitySystem2012</RootNamespace>
-    <AssemblyName>VeeEntitySystem2012</AssemblyName>
+    <RootNamespace>VeeEntity</RootNamespace>
+    <AssemblyName>VeeEntity</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
